@@ -14,6 +14,9 @@ class MyClass2(var userName: String = "BB") {
     init {
         //初始化代码块
         println(userName)
+        println("---------------------")
+        println(userName.toLowerCase())
+        println("---------------------")
         userName = "AA"
         println(userName)
         println("---------------------")
