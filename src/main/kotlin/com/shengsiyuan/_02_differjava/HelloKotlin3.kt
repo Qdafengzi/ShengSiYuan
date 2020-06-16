@@ -1,6 +1,5 @@
 package com.shengsiyuan._02_differjava
 
-import java.util.function.Consumer
 import com.shengsiyuan._02_differjava2.multiply as myMultiply
 
 fun main(args: Array<String>) {
