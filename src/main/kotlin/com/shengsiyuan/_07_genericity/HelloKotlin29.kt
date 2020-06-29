@@ -11,35 +11,34 @@ class MyGeneric<T>(t: T) {
 }
 
 fun main(args: Array<String>) {
-    var myGeneric: MyGeneric<String> = MyGeneric<String>("hello world")
+    val myGeneric: MyGeneric<String> = MyGeneric<String>("hello world")
     println(myGeneric.variable)
 
-    var myGeneric2 = MyGeneric("hello world")//Kotlin类型推断
+    val myGeneric2 = MyGeneric("hello world")//Kotlin类型推断 尖括号可以省略
     println(myGeneric2.variable)
+    println("---------------------------")
+    val myClass = MyClass<String, Number>("abc", 3.2)
+    myTest(myClass)
 }
 
-// 协变（covariant）和逆变（controversial）
-/*
-    List<Object>
-    List<String>
-    List<string> list = new ArrayList();
-    List<Object> list2 = list; //编译失败
+class MyClass<out T, in M>(t: T, m: M) {
+    private var t: T
+    private var m: M
 
-    list2.add (new Date( ) )
-    String str = list.get(0);
-    通配符的出现 解决上面问题
-    List<? extends Object> list . ..
-
-
-    interface Collection<E> {
-        void addAll(Collection<E> items)
+    init {
+        this.t = t
+        this.m = m
+        println(this.m)
     }
 
-    interface Collection<E> {//实际
-        void addAll(Collection<? extends E> items)
-    }
+    fun get(): T = this.t
 
-    void copyAll(Collection<Object> to, Collection<String> from) {
-    to.addAll(from)
+    fun set(m: M) {
+        this.m = m
     }
-*/
+}
+
+fun myTest(myClass: MyClass<String, Number>) {
+    val myObject: MyClass<Any, Int> = myClass
+    println(myObject.get())//读取Any  写入都是Number
+}
