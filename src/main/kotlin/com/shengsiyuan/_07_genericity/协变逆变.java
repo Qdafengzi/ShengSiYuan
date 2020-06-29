@@ -9,7 +9,7 @@ public class 协变逆变 {
         // 协变（covariant）和逆变（controversial）
         List<Object>
         List<String>
-        List<String> 不是 List<Object>的子类 List不支持协变
+        //List<String> 不是 List<Object>的子类 List不支持协变
 
         List<String> list = new ArrayList();
         List<Object> list2 = list; //编译失败

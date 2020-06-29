@@ -1,5 +1,7 @@
 package com.shengsiyuan._07_genericity
 
+import kotlin.test.assertTrue
+
 //泛型 generics 变量类型的参数化
 
 class MyGeneric<T>(t: T) {
@@ -28,13 +30,13 @@ class MyClass<out T, in M>(t: T, m: M) {
     init {
         this.t = t
         this.m = m
-        println(this.m)
     }
 
     fun get(): T = this.t
 
     fun set(m: M) {
         this.m = m
+        println(m is Number)
     }
 }
 
