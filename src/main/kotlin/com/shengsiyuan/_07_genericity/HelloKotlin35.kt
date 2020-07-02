@@ -13,6 +13,7 @@ fun main(args: Array<String>) {
     val item1 = getValue("hello")
     println(item1)
 
+    val upperBounds = UpperBoundsClass2<String>()
 }
 
 //T 只能是 List<T> 和 List<T>下面的类型
