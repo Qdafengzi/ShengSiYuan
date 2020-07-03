@@ -24,6 +24,18 @@ abstract class MyAbstractClass {
     abstract fun printMyAbstractClassInfo()
 }
 
+class Test {
+   val myObject = object : MyInterface {
+        override fun myPrint(i: Int) {
+            println(i)
+        }
+    }
+
+    fun HaHa() {
+        myObject.myPrint(20)
+    }
+}
+
 fun main(args: Array<String>) {
     //一个匿名内部类实现了MyInterface接口 并返回了这个匿名类
     val myObject = object : MyInterface {
