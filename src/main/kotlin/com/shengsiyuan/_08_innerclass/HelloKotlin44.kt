@@ -1,6 +1,5 @@
 package com.shengsiyuan._08_innerclass
 
-import java.awt.event.ActionEvent
 import java.awt.event.ActionListener
 import java.awt.event.WindowEvent
 import java.awt.event.WindowListener
@@ -43,6 +42,16 @@ fun main(args: Array<String>) {
     jButton.addActionListener {
         println("button click")
     }
+
+
+    val listener = ActionListener {
+        println("hello world")
+    }
+    println(listener.javaClass)
+    println(listener.javaClass.superclass)
+    println(listener::class.java)
+    println(listener::class.java.superclass)
+
     jFrame.add(jButton)
     jFrame.pack();
     jFrame.isVisible = true;
