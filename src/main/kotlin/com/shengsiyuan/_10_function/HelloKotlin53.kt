@@ -32,6 +32,15 @@ fun main(args: Array<String>) {
     test3() { a, b -> println(a * b) }
 
     test4(1, 2, 3, 4)
+
+    test4("a", "b", "c")
+
+    val str = arrayOf("a", "b", "c")
+    //* spread operator 分散运算符
+    test4(strings = *str)
+    /*
+        在Kotlin中调用Java方法时不能使用具名参数语法，因为Java字节码并不总是会保留参数名信息
+     */
 }
 
 /*
@@ -54,7 +63,16 @@ fun test3(a: Int = 1, b: Int = 2, compute: (x: Int, y: Int) -> Unit) {
     当一个函数有大量参数或是一些参数有默认值时。这种调用是比较方便的
  */
 fun test4(a: Int = 1, b: Int, c: Int, d: Int) = println("$a - $b - $c - $d= ${a - b - c - d}")
+/*
+    在调用函数时，如果同时使用了位置参数与具名参数，那么所有的位置参数都必须要位于第一个具名参数之前
+    比如说：foo(1, x = 2)是允许的，不过foo(x = 1, 2)是不允许的
+ */
 
+fun test4(vararg strings: String) {
+    println(strings.javaClass)
+    strings.forEach { println(it) }
+    strings.forEach(::println)
+}
 /*
     方法的重写：
     子类所拥有的重写方法会使用与父类相同的默认参数值
